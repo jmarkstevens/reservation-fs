@@ -1,0 +1,28 @@
+{
+  "name": "reservation-server",
+  "version": "1.0.0",
+  "description": "Apollo server for reservations",
+  "main": "dist/main.js",
+  "repository": "https://github/jmarkstevens/ReservationsServer",
+  "author": "Mark Stevens",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack --config webpack.$NODE_ENV.js",
+    "start": "node dist/main"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.13.9",
+    "clean-webpack-plugin": "^2.0.2",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "apollo-server": "^2.5.0",
+    "graphql": "^14.3.0"
+  }
+}
