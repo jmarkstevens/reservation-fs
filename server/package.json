@@ -9,11 +9,14 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.$NODE_ENV.js",
-    "start": "node dist/main"
+    "start": "node dist/main",
+    "start:env": "node --require dotenv/config dist/main"
   },
   "devDependencies": {
+    "@types/ioredis": "^4.0.10",
     "@types/webpack-env": "^1.13.9",
     "clean-webpack-plugin": "^2.0.2",
+    "dotenv": "^8.0.0",
     "ts-loader": "^6.0.0",
     "typescript": "^3.4.5",
     "webpack": "^4.31.0",
@@ -23,6 +26,7 @@
   },
   "dependencies": {
     "apollo-server": "^2.5.0",
-    "graphql": "^14.3.0"
+    "graphql": "^14.3.0",
+    "ioredis": "^4.9.3"
   }
 }

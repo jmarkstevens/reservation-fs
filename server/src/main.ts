@@ -1,11 +1,21 @@
 import { ApolloServer } from 'apollo-server'
+import Redis from 'ioredis'
 
+import { environment } from './environment'
 import resolvers from './resolvers'
 import typeDefs from './schemas'
 
-const server = new ApolloServer({ resolvers, typeDefs })
+const redis = new Redis()
 
-server.listen().then(({ url }) => console.log(`Server ready at ${url}. `))
+const server = new ApolloServer({
+  resolvers,
+  typeDefs,
+  introspection: environment.apollo.introspection,
+  playground: environment.apollo.playground,
+  context: { redis }
+})
+
+server.listen(environment.port).then(({ url }) => console.log(`Server ready at ${url}. `))
 
 if (module.hot) {
   module.hot.accept()

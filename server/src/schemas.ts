@@ -2,9 +2,32 @@ import { gql } from 'apollo-server'
 
 export default gql`
   type Query {
-    """
-    Test Message.
-    """
     testMessage: String!
+
+    get(key: String!): String
+
+    reservations: [Reservation!]
+  }
+
+  type Mutation {
+    set(key: String!, value: String!): Boolean!
+
+    setReservations(reservations: [iReservation]): Boolean!
+  }
+
+  type Reservation {
+    id: String!
+    name: String!
+    hotelName: String!
+    arrivalDate: String!
+    departureDate: String!
+  }
+
+  input iReservation {
+    id: String!
+    name: String!
+    hotelName: String!
+    arrivalDate: String!
+    departureDate: String!
   }
 `
