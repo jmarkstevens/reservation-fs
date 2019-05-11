@@ -1,1 +1,1 @@
-export { default } from './staticClient'
+export { default } from './client'
