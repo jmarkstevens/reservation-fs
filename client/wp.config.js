@@ -32,6 +32,6 @@ module.exports = {
     new MiniCssExtractPlugin()
   ],
   resolve: {
-    extensions: ['*', '.css', '.js', '.scss', '.ts', '.tsx']
+    extensions: ['.js', '.scss', '.ts', '.tsx']
   }
 }

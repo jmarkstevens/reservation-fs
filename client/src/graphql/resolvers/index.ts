@@ -1,1 +1,1 @@
-export { defaults, resolvers, typeDefs } from './resolvers'
+export { defaults, typeDefs } from './resolvers'
