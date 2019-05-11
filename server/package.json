@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Apollo server for reservations",
   "main": "dist/main.js",
-  "repository": "https://github/jmarkstevens/ReservationsServer",
+  "repository": "https://github/jmarkstevens/reservation-fs",
   "author": "Mark Stevens",
   "license": "MIT",
   "scripts": {
