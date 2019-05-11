@@ -1,16 +1,8 @@
 import * as React from 'react'
 
-interface Props {
-  showAddReservation: boolean;
-}
+interface Props {}
 
-const AppComponent: React.FunctionComponent<Props> = ({
-  showAddReservation,
-}) => {
-  console.log(
-    'AppComponent showAddReservation:',
-    showAddReservation ? 'show' : 'hide'
-  )
+const AppComponent: React.FunctionComponent<Props> = () => {
   return <div className="app-container">AppComponent</div>
 }
 

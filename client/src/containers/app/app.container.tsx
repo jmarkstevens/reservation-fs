@@ -3,9 +3,9 @@ import * as React from 'react'
 import AppComponent from '../../components/app'
 
 export interface AppContextInterface {
-  changeExamplePage: any;
+  changeSelectedReservation: any;
   changeShowAddReservation: any;
-  examplePage: number;
+  selectedReservation: number;
   showAddReservation: boolean;
 }
 
@@ -13,22 +13,22 @@ export const AppContext = React.createContext<AppContextInterface | null>(null)
 
 const AppContainer = () => {
   const [showAddReservation, setShowAddReservation] = React.useState(false)
-  const [examplePage, setExamplePage] = React.useState(1)
+  const [selectedReservation, setSelectedReservation] = React.useState(0)
 
-  const changeExamplePage = (index: number) => setExamplePage(index)
+  const changeSelectedReservation = (id: number) => setSelectedReservation(id)
   const changeShowAddReservation = () =>
     setShowAddReservation(!showAddReservation)
 
   return (
     <AppContext.Provider
       value={{
-        changeExamplePage,
+        changeSelectedReservation,
         changeShowAddReservation,
-        examplePage,
+        selectedReservation,
         showAddReservation,
       }}
     >
-      <AppComponent showAddReservation={showAddReservation} />
+      <AppComponent />
     </AppContext.Provider>
   )
 }
