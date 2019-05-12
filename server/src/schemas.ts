@@ -6,7 +6,7 @@ export default gql`
 
     get(key: String!): String
 
-    reservations: [Reservation!]
+    getReservations: [Reservation!]
   }
 
   type Mutation {

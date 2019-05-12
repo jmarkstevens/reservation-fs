@@ -7,8 +7,8 @@ export const GET_DATE = gql`
 `
 
 export const reservationsQuery = gql`
-  query reservations($arrivalDate: String!, $arrivalDate2: String!) {
-    reservations(where: { OR: [{ arrivalDate: $arrivalDate }, { arrivalDate: $arrivalDate2 }] }) {
+  query reservations() {
+    getReservations() {
       id
       name
       hotelName
@@ -21,15 +21,17 @@ export const reservationsQuery = gql`
 export const createReservation = gql`
   mutation createReservation(
     $name: String!
-    $hotelName: String!,
-    $arrivalDate: String!,
-    $departureDate: String!,
+    $hotelName: String!
+    $arrivalDate: String!
+    $departureDate: String!
   ) {
     createReservation(
-      data: {name: $name,
-      hotelName: $hotelName,
-      arrivalDate: $arrivalDate,
-      departureDate: $departureDate}
+      data: {
+        name: $name
+        hotelName: $hotelName
+        arrivalDate: $arrivalDate
+        departureDate: $departureDate
+      }
     ) {
       id
       name

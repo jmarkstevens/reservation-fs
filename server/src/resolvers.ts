@@ -1,22 +1,22 @@
 interface iKey {
-  key: string
+  key: string;
 }
 interface iRedis {
-  redis: any
+  redis: any;
 }
 interface iReservation {
-  id: number
-  name: string
-  hotelName: string
-  arrivalDate: string
-  departureDate: string
+  id: number;
+  name: string;
+  hotelName: string;
+  arrivalDate: string;
+  departureDate: string;
 }
 interface iReservations {
-  reservations: iReservation[]
+  reservations: iReservation[];
 }
 interface iKeyValue {
-  key: string
-  value: string
+  key: string;
+  value: string;
 }
 
 export default {
@@ -24,8 +24,13 @@ export default {
     testMessage: (): string => {
       return 'Hello World!'
     },
-    reservations: (parent: any, { key }: iKey, { redis }: iRedis): iReservation[] => {
-      return redis.get('reservations')
+    getReservations: async (parent: any, { key }: iKey, { redis }: iRedis) => {
+      try {
+        const value = await redis.get('reservations')
+        return JSON.parse(value)
+      } catch (error) {
+        return null
+      }
     },
     get: (parent: any, { key }: iKey, { redis }: iRedis) => {
       try {
@@ -33,13 +38,17 @@ export default {
       } catch (error) {
         return null
       }
-    }
+    },
   },
 
   Mutation: {
-    setReservations: async (parent: any, { reservations }: iReservations, { redis }: iRedis) => {
+    setReservations: async (
+      parent: any,
+      { reservations }: iReservations,
+      { redis }: iRedis
+    ) => {
       try {
-        await redis.set('reservations', reservations)
+        await redis.set('reservations', JSON.stringify(reservations))
         return true
       } catch (error) {
         console.log(error)
@@ -54,6 +63,6 @@ export default {
         console.log(error)
         return false
       }
-    }
-  }
+    },
+  },
 }
