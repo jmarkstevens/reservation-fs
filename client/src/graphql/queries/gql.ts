@@ -1,14 +1,8 @@
 import gql from 'graphql-tag'
 
-export const GET_DATE = gql`
-  query getDate {
-    arrivalDate @client
-  }
-`
-
 export const reservationsQuery = gql`
-  query reservations() {
-    getReservations() {
+  query {
+    reservations: getReservations {
       id
       name
       hotelName

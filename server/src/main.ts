@@ -12,10 +12,12 @@ const server = new ApolloServer({
   typeDefs,
   introspection: environment.apollo.introspection,
   playground: environment.apollo.playground,
-  context: { redis }
+  context: { redis },
 })
 
-server.listen(environment.port).then(({ url }) => console.log(`Server ready at ${url}. `))
+server
+  .listen(environment.port)
+  .then(({ url }) => console.log(`Server ready at ${url}. `))
 
 if (module.hot) {
   module.hot.accept()

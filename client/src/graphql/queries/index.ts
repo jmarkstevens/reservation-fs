@@ -1,1 +1,1 @@
-export { createReservation, GET_DATE, reservationsQuery } from './gql'
+export { createReservation, reservationsQuery } from './gql'
