@@ -1,0 +1,25 @@
+@import 'styles/variables';
+
+@import 'styles/common.scss';
+@import 'styles/normalize.scss';
+@import 'styles/reservation-list.scss';
+
+body {
+  background-color: $background-color;
+  color: $foreground-color;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0 5px;
+  width: 100vw;
+}
+
+* {
+  outline: none;
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: 1366px;
+  width: 100%;
+}
