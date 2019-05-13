@@ -1,0 +1,19 @@
+.reservation-list {
+  max-width: 400px;
+  width: 100%;
+}
+
+.reservation-list-item {
+  cursor: pointer;
+  width: 100%;
+}
+
+.reservation-detail {
+  border: 1px solid black;
+  padding: 20px 10px;
+  max-width: 300px;
+}
+
+.reservation-detail-tdl {
+  text-align: right;
+}

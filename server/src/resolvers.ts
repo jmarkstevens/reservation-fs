@@ -1,3 +1,6 @@
+interface iId {
+  id: string;
+}
 interface iKey {
   key: string;
 }
@@ -5,7 +8,7 @@ interface iRedis {
   redis: any;
 }
 interface iReservation {
-  id: number;
+  id: string;
   name: string;
   hotelName: string;
   arrivalDate: string;
@@ -28,6 +31,17 @@ export default {
       try {
         const value = await redis.get('reservations')
         return JSON.parse(value)
+      } catch (error) {
+        return null
+      }
+    },
+    getOneReservation: async (parent: any, { id }: iId, { redis }: iRedis) => {
+      try {
+        if (id === '0') { return null }
+        const value = await redis.get('reservations')
+        const list = JSON.parse(value)
+        const one = list.find((item: iReservation) => item.id === id)
+        return one
       } catch (error) {
         return null
       }

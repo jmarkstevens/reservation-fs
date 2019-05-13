@@ -25,6 +25,13 @@ export interface ReservationResponse {
   departureDate: string;
 }
 
+export interface ResevationDetailProps {
+  oneReservation:
+    | ({ refetch: () => void; reservation: ReservationResponse })
+    | any;
+  selectedReservation: string;
+}
+
 export interface ResevationListProps {
   reservationsQuery:
     | ({ refetch: () => void; reservations: ReservationResponse[] })

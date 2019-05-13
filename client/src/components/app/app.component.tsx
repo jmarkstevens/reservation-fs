@@ -1,15 +1,26 @@
 import * as React from 'react'
 
+import ReservationDetailContainer from '../../containers/reservation-detail'
 import ReservationListContainer from '../../containers/reservation-list'
 
 interface Props {
-  showDetail: boolean;
+  selectedReservation: string;
 }
 
-const AppComponent: React.FunctionComponent<Props> = () => {
+const AppComponent: React.FunctionComponent<Props> = ({
+  selectedReservation,
+}) => {
   return (
     <div className="app-container">
-      <ReservationListContainer reservationsQuery={null} />
+      <div className="app-container-list">
+        <ReservationListContainer reservationsQuery={null} />
+      </div>
+      <div className="app-container-detail">
+        <ReservationDetailContainer
+          oneReservation={null}
+          selectedReservation={selectedReservation}
+        />
+      </div>
     </div>
   )
 }

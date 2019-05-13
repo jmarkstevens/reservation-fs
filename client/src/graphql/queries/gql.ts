@@ -12,6 +12,18 @@ export const reservationsQuery = gql`
   }
 `
 
+export const oneReservationQuery = gql`
+  query getOneReservation($id: String!) {
+    reservation: getOneReservation(id: $id) {
+      id
+      name
+      hotelName
+      arrivalDate
+      departureDate
+    }
+  }
+`
+
 export const createReservation = gql`
   mutation createReservation(
     $name: String!

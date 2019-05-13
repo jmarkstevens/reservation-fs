@@ -2,7 +2,7 @@
 
 @import 'styles/common.scss';
 @import 'styles/normalize.scss';
-@import 'styles/reservation-list.scss';
+@import 'styles/reservations.scss';
 
 body {
   background-color: $background-color;
@@ -19,7 +19,17 @@ body {
 }
 
 .app-container {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
   max-width: 1366px;
   width: 100%;
+}
+
+.app-container-list {
+  flex-grow: 2;
+}
+
+.app-container-detail {
+  flex-grow: 1;
 }

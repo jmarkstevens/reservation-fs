@@ -28,7 +28,7 @@ const AppContainer = () => {
         showAddReservation,
       }}
     >
-      <AppComponent showDetail={selectedReservation !== '0'} />
+      <AppComponent selectedReservation={selectedReservation} />
     </AppContext.Provider>
   )
 }

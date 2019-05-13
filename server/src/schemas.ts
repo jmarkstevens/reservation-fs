@@ -6,6 +6,8 @@ export default gql`
 
     get(key: String!): String
 
+    getOneReservation(id: String!): Reservation!
+
     getReservations: [Reservation!]
   }
 
