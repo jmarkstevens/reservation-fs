@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
@@ -32,6 +32,6 @@ module.exports = {
     new MiniCssExtractPlugin()
   ],
   resolve: {
-    extensions: ['.js', '.scss', '.ts', '.tsx']
+    extensions: ['.css', '.js', '.scss', '.ts', '.tsx']
   }
 }

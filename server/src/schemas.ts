@@ -14,7 +14,7 @@ export default gql`
   type Mutation {
     set(key: String!, value: String!): Boolean!
 
-    setReservations(reservations: [iReservation]): Boolean!
+    createReservation(data: iReservation): Boolean!
   }
 
   type Reservation {

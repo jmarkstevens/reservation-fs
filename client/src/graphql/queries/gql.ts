@@ -33,17 +33,12 @@ export const createReservation = gql`
   ) {
     createReservation(
       data: {
+        id: ""
         name: $name
         hotelName: $hotelName
         arrivalDate: $arrivalDate
         departureDate: $departureDate
       }
-    ) {
-      id
-      name
-      hotelName
-      arrivalDate
-      departureDate
-    }
+    )
   }
 `

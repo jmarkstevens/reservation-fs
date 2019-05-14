@@ -1,11 +1,12 @@
 import * as React from 'react'
 
+import { AppContext } from '../../containers/app'
 import { ReservationResponse, ResevationListProps } from '../../types'
 import ReservationListItem from './reservation-list-item'
 
 const ReservationList = (props: ResevationListProps) => {
   const {
-    reservationsQuery: { reservations },
+    reservationsQuery: { refetch, reservations },
   } = props
   if (typeof reservations === 'undefined') {
     return null
@@ -16,10 +17,24 @@ const ReservationList = (props: ResevationListProps) => {
       return <ReservationListItem key={key} reservation={reservation} />
     }
   )
+  const {
+    changeNewResevationSuccess,
+    changeShowAddReservation,
+    newResevationSuccess,
+  } = React.useContext(AppContext)
+  if (newResevationSuccess) {
+    refetch()
+    changeNewResevationSuccess()
+  }
   return (
-    <table className="reservation-list">
-      <tbody>{list}</tbody>
-    </table>
+    <div className="reservation-list">
+      <table>
+        <tbody>{list}</tbody>
+      </table>
+      <div className="reservation-new-submit">
+        <button onClick={changeShowAddReservation}>New Reservation</button>
+      </div>
+    </div>
   )
 }
 

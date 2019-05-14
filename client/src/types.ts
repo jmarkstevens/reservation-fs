@@ -9,12 +9,16 @@ interface MutateVariables {
   variables: Reservation;
 }
 
+interface mutateResponse {
+  data: { createReservation: boolean };
+}
+
 export interface MutationProp {
-  mutate: ({  }: MutateVariables) => Promise<void>;
+  mutate: ({  }: MutateVariables) => Promise<mutateResponse>;
 }
 
 export interface MutationPropNull {
-  mutate: (({  }: MutateVariables) => Promise<void>) | null;
+  mutate: (({  }: MutateVariables) => Promise<mutateResponse>) | null;
 }
 
 export interface ReservationResponse {

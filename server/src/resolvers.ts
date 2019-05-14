@@ -14,8 +14,14 @@ interface iReservation {
   arrivalDate: string;
   departureDate: string;
 }
-interface iReservations {
-  reservations: iReservation[];
+interface iNewReservation {
+  data: {
+    id: string;
+    name: string;
+    hotelName: string;
+    arrivalDate: string;
+    departureDate: string;
+  };
 }
 interface iKeyValue {
   key: string;
@@ -37,7 +43,9 @@ export default {
     },
     getOneReservation: async (parent: any, { id }: iId, { redis }: iRedis) => {
       try {
-        if (id === '0') { return null }
+        if (id === '0') {
+          return null
+        }
         const value = await redis.get('reservations')
         const list = JSON.parse(value)
         const one = list.find((item: iReservation) => item.id === id)
@@ -56,12 +64,19 @@ export default {
   },
 
   Mutation: {
-    setReservations: async (
+    createReservation: async (
       parent: any,
-      { reservations }: iReservations,
+      { data }: iNewReservation,
       { redis }: iRedis
     ) => {
       try {
+        const newReservation = data
+        newReservation.id = await redis.get('nextID')
+        const nextNum = parseInt(newReservation.id, 10) + 1
+        await redis.set('nextID', nextNum)
+        const reservationsString = await redis.get('reservations')
+        const reservations = JSON.parse(reservationsString)
+        reservations.push(newReservation)
         await redis.set('reservations', JSON.stringify(reservations))
         return true
       } catch (error) {

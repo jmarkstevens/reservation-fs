@@ -17,3 +17,29 @@
 .reservation-detail-tdl {
   text-align: right;
 }
+
+.reservation-new {
+  border: 1px solid black;
+  max-width: 350px;
+  padding: 20px 10px;
+}
+
+.reservation-new-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  margin: 10px 20px;
+}
+
+.reservation-new-r {
+  margin-right: 5px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.reservation-new-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px 20px;
+}
